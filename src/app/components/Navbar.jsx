@@ -344,7 +344,7 @@ hover:after:scale-x-100
             <div className="relative z-10 flex items-center justify-between px-6 pt-8">
               <div>
                 <Image
-                  src="/main/logo1.png"
+                  src="/logo1.png"
                   alt="Ideafil Logo Arabic"
                   width={120}
                   height={50}
