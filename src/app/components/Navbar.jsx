@@ -272,15 +272,12 @@ export default function Navbar() {
               {/* CTA Button */}
              <Link
              href={'#contact'}
-             className="hidden md:inline-flex items-center justify-center
-             px-8 py-3 relative overflow-hidden
-             rounded-[4px] font-medium text-white
-             bg-gradient-to-r from-[#7F00FE] to-[#a855f7]
-             shadow-[0_0_25px_rgba(127,0,254,0.35)]
-             transition-all duration-300
-             hover:shadow-[0_0_40px_rgba(127,0,254,0.6)]
-             hover:-translate-y-1
-             active:scale-95 group">
+             className="flex items-center justify-center w-full py-2.5 rounded-[8px] font-semibold
+            text-white text-lg font-tajwal relative overflow-hidden transition-all duration-300
+            hover:shadow-[0_0_30px_rgba(0,143,245,0.3)] active:scale-[0.98]"
+             style={{
+             background: 'linear-gradient(135deg, #008FF5 0%, #0070DD 100%)',
+             }}>
   
              {/* Glow overlay */}
              <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>

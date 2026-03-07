@@ -53,14 +53,12 @@ const Footer = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
 
           {/* Top section — CTA + Logo */}
-          <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 mb-16">
+          <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16">
             <div className="flex flex-col items-center lg:items-start">
               <Link href="/" className="group">
                 <Image
                   src={logo1}
                   alt="Ideafil Logo"
-                  width={200}
-                  height={80}
                   className="object-contain w-[160px] lg:w-[200px] transition-all duration-300 group-hover:brightness-125"
                 />
               </Link>
@@ -69,7 +67,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="flex flex-col items-start gap-4">
+            <div className="flex flex-col items-center lg:items-start gap-4">
               <span className="text-white/30 text-xs font-tajwal tracking-widest uppercase mb-2">روابط سريعة</span>
               {navLinks.map((link) => (
                 <Link
@@ -84,7 +82,7 @@ const Footer = () => {
             </div>
 
             {/* Contact info */}
-            <div className="flex flex-col items-start gap-4">
+            <div className="flex flex-col items-center lg:items-start gap-4">
               <span className="text-white/30 text-xs font-tajwal tracking-widest uppercase mb-2">تواصل معنا</span>
 
               <span className="flex items-center gap-3 text-white/70 text-[15px] font-tajwal">
