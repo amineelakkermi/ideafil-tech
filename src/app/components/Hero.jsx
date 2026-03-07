@@ -45,9 +45,6 @@ const Hero = () => {
     <div 
       className="absolute w-full h-[500px] pointer-events-none opacity-50"
       style={{
-        left: 'calc(50% - 1421px/2 - 0.5px)',
-        top: '104px',
-        transform: 'matrix(-1, 0, 0, 1, 0, 0)',
         mixBlendMode: 'color-dodge',
       }}
     >
