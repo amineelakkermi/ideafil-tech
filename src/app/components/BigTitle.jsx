@@ -28,8 +28,8 @@ const BigTitle = ({ title }) => {
     <div>
       <h1
         ref={titleRef}
-        className="text-[55px] lg:text-[90px]
-        leading-[1.4]
+        className="text-[55px] lg:text-[100px]
+        leading-[1.3]
         font-extrabold text-white font-tajwal z-50"
       >
         {title}

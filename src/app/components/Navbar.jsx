@@ -132,7 +132,21 @@ export default function Navbar() {
     const isActive = pathname === href.split('#')[0];
     return `relative transition-all duration-300 hover:opacity-80 ${
       scrolled ? 'text-white' : 'text-white'
-    } ${isActive ? (scrolled ? 'opacity-100' : 'opacity-100') : 'opacity-90'} group`;
+    } ${isActive ? (scrolled ? 'opacity-100' : 'opacity-100') : 'opacity-90'} group
+    relative
+after:content-['']
+after:absolute
+after:left-0
+after:-bottom-2
+after:h-[2px]
+after:w-full
+after:bg-blue-500
+after:scale-x-0
+after:origin-center
+after:transition-transform
+after:duration-300
+hover:after:scale-x-100
+    `;
   };
 
   return (
@@ -262,7 +276,7 @@ export default function Navbar() {
                   onClick={(e) => handleLinkClick(e, link.href)}
                   className={linkClasses(link.href)}
                 >
-                  <span className="relative z-10 transition-all duration-300 group-hover:text-purple-300">{link.name}</span>
+                  <span className="relative z-10 transition-all duration-300 group-hover:text-blue">{link.name}</span>
                 </Link>
               ))}
             </div>

@@ -13,7 +13,7 @@ export default function Home() {
       <div className='min-h-[100vh] relative bg-dark z-[999]'>
       <Navbar />
       <Hero />
-      <div className='absolute inset-0 w-full h-[100%] z-[1] pointer-events-none'>
+      <div className='absolute inset-0 w-full h-[100%] z-[1]'>
       <Squares
       speed={0.1}
       squareSize={40}
