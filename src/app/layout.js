@@ -74,7 +74,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
       <body className={`${handicrafts.variable} ${tajwal.variable} antialiased`}>
-        <Navbar />
         <ScrollTop />
         {children}
         <Footer />

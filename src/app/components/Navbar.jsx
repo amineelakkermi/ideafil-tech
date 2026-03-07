@@ -212,8 +212,8 @@ export default function Navbar() {
       
       <nav
         dir="rtl"
-        className={`sticky bg-dark ${scrolled ? 'border-b' : 'border-none'} border-white/10 top-0 left-0 right-0
-         z-[998] transition-all duration-300 
+        className={`sticky ${scrolled ? 'border-b bg-dark' : 'border-none'} border-white/10 top-0 left-0 right-0
+         z-[9999] transition-all duration-300 
           `}
       >
         <div className="max-w-6xl mx-auto">

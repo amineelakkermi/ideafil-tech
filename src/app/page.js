@@ -11,6 +11,7 @@ export default function Home() {
   return (
     <div>
       <div className='min-h-[100vh] relative bg-dark z-[999]'>
+      <Navbar />
       <Hero />
       <div className='absolute inset-0 w-full h-[100%] z-[1] pointer-events-none'>
       <Squares
@@ -24,13 +25,11 @@ export default function Home() {
       
       </div>
        
-      <div className='relative'>
       <Services />
       <WorkProcess />
       <Works1 />
       <Cta />
       </div>
-    </div>
     
     
   );
