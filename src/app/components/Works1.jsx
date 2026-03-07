@@ -32,15 +32,15 @@ const Works1 = () => {
 
       {/* Header */}
       <div className={`${styles.container}`}>
-        <div className="w-full flex justify-between items-center">
+        <div className="w-full flex flex-col lg:flex-row gap-5 justify-between items-center">
           
           <Title className="text-gradient text-[36px] lg:text-[52px] font-extrabold font-tajwal leading-tight">
           معرض أعمـــالنا
           </Title>
           
-          <Paragraph className="hidden sm:block text-white 
+          <Paragraph className=" text-white 
           max-w-[500px]
-          text-[16px] lg:text-[20px] text-right">
+          text-center lg:text-right">
           استكشف مجموعة من المشاريع التي قمنا بتصميمها وتطويرها لعملائنا :
           </Paragraph>
         </div>

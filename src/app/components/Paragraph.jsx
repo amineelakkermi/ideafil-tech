@@ -28,7 +28,7 @@ const Paragraph = ({ children, className = "" , color = "gray-300" }) => {
   return (
     <p
       ref={paragraphRef}
-      className={`font-[400] text-[20px] leading-[30.8px]
+      className={`font-[400] text-[16px] lg:text-[20px] leading-[30.8px]
          text-${color}  ${className}`}
     >
       {children}

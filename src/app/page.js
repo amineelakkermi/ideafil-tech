@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <div className="relative">
         <Hero />
-       
         <Services />
         <WorkProcess />
         <Works1 />

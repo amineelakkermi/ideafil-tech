@@ -62,7 +62,7 @@ const steps = [
 
 const WorkProcess = () => {
   return (
-    <section className={` relative min-h-[100vh] bg-dark overflow-hidden`}>
+    <section className={`${styles.paddingY} relative min-h-[100vh] bg-dark overflow-hidden`}>
       {/* Background ambient glow */}
       <div className="absolute inset-0 pointer-events-none">
         <div 
@@ -71,7 +71,7 @@ const WorkProcess = () => {
         />
       </div>
 
-      <div className={`${styles.container}`}>
+      <div className={`${styles.container} `}>
         {/* Section Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-[#00BFFE] text-sm font-semibold tracking-wider font-tajwal mb-4 px-4 py-2 rounded-full"
