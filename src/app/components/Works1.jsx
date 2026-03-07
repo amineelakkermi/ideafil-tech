@@ -5,8 +5,6 @@ import Link from "next/link"
 import styles from "../style"
 import Paragraph from "./Paragraph"
 
-import conex from "../../../public/works/conex.png"
-import rahafah from "../../../public/works/rahafah.png"
 import HorizontalPortfolio from "./HorizontalPortfolio"
 import Title from "./Title"
 

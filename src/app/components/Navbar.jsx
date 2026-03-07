@@ -258,7 +258,7 @@ hover:after:scale-x-100
             {/* Logo Right */}
             <Link href='/' className="flex items-center min-w-[150px]">
               <Image
-                src="/main/logo1.png"
+                src="/logo1.png"
                 alt="Ideafil Logo Arabic"
                 width={200}
                 height={80}

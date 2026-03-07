@@ -3,7 +3,6 @@
 import Image from "next/image"
 import { worksData } from "../data/worksData"
 import styles from "../style"
-import behance from '../../../public/socialMedia/behance.png'
 
 const accentColors = ['#00BFFE', '#7F00FE', '#00D4AA', '#FF6B6B']
 
