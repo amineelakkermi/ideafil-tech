@@ -96,7 +96,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section id='services' className={`${styles.padding} z-10 relative min-h-[100vh] bg-dark`}>
+    <section id='services' className={`${styles.paddingY} flex justify-center items-center z-10 relative min-h-[100vh] bg-dark`}>
     <div className={`${styles.container}`}>
      <div className='absolute -top-5 -right-16'>
     <svg width="50" height="50" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -113,7 +113,7 @@ const Services = () => {
     </Paragraph>
 
     {/* Service Cards */}
-    <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 mt-12 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 w-full">
       {services.map((service, index) => (
         <div
           key={index}

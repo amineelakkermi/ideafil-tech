@@ -98,7 +98,7 @@ const HorizontalPortfolio = () => {
       id="portfolio"
       className={`relative overflow-hidden bg-dark ${styles.padding}`}
     >
-      <div dir="rtl" className="max-w-5xl mx-6 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div dir="rtl" className={`${styles.container} mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6`}>
         {worksData.map((work, index) => (
           <PortfolioCard key={work.id} work={work} index={index} />
         ))}

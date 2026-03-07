@@ -27,7 +27,7 @@ const Works1 = () => {
   return (
     <section 
       id="portfolio" 
-      className={`${styles.paddingY} bg-dark relative`}
+      className={`${styles.paddingY} min-h-[100vh] bg-dark relative`}
     >
 
       {/* Header */}
