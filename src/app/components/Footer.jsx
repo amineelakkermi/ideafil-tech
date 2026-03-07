@@ -54,8 +54,7 @@ const Footer = () => {
 
           {/* Top section — CTA + Logo */}
           <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 mb-16">
-            {/* Left: Logo + tagline */}
-            <div className="flex flex-col items-center lg:items-start gap-5">
+            <div className="flex flex-col items-center lg:items-start">
               <Link href="/" className="group">
                 <Image
                   src={logo1}
@@ -66,12 +65,12 @@ const Footer = () => {
                 />
               </Link>
               <p className="text-white/60 text-[15px] font-tajwal max-w-[300px] text-center lg:text-right leading-relaxed">
-                نحول أفكارك إلى واقع رقمي متميز بإبداع وابتكار لا حدود لهما
+              شريكك التقني اللي يفهمك ويمشي معك خطوة بخطوة آیدفل تك هو خيارك الأول
+
               </p>
             </div>
 
-            {/* Center: Navigation */}
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-start gap-4">
               <span className="text-white/30 text-xs font-tajwal tracking-widest uppercase mb-2">روابط سريعة</span>
               {navLinks.map((link) => (
                 <Link
@@ -85,8 +84,8 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* Right: Contact info */}
-            <div className="flex flex-col items-center lg:items-end gap-4">
+            {/* Contact info */}
+            <div className="flex flex-col items-start gap-4">
               <span className="text-white/30 text-xs font-tajwal tracking-widest uppercase mb-2">تواصل معنا</span>
 
               <span className="flex items-center gap-3 text-white/70 text-[15px] font-tajwal">
@@ -112,7 +111,7 @@ const Footer = () => {
                   style={{ background: 'rgba(255,255,255,0.07)', border: '1px solid rgba(255,255,255,0.10)' }}>
                   <Image src={phone} alt="Phone" width={16} height={16} className="object-contain opacity-60" />
                 </span>
-                +966 50 774 7972
+               <span dir="ltr"> +966 50 774 7972</span>
               </a>
             </div>
           </div>
