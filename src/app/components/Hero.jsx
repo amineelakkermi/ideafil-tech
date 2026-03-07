@@ -43,7 +43,7 @@ const Hero = () => {
 
     {/* Stars */}
     <div 
-      className="absolute w-full h-[500px] pointer-events-none opacity-50"
+      className="absolute overflow-hidden w-full h-[500px] pointer-events-none opacity-80 md:opacity-50"
       style={{
         mixBlendMode: 'color-dodge',
       }}
@@ -52,7 +52,7 @@ const Hero = () => {
         src={stars}
         alt="stars"
         fill
-        className="w-full h-full object-contain"
+        className="w-[100%] h-[100%] object-contain"
       />
     </div>
 
