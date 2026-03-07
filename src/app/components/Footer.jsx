@@ -66,7 +66,6 @@ const Footer = () => {
               </Link>
               <p className="text-white/60 text-[15px] font-tajwal max-w-[300px] text-center lg:text-right leading-relaxed">
               شريكك التقني اللي يفهمك ويمشي معك خطوة بخطوة آیدفل تك هو خيارك الأول
-
               </p>
             </div>
 

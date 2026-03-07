@@ -41,20 +41,7 @@ const Hero = () => {
     
    
 
-    {/* Stars */}
-    <div 
-      className="absolute overflow-hidden w-full h-[500px] pointer-events-none opacity-80 md:opacity-50"
-      style={{
-        mixBlendMode: 'color-dodge',
-      }}
-    >
-      <Image
-        src={stars}
-        alt="stars"
-        fill
-        className="w-[100%] h-[100%] object-contain"
-      />
-    </div>
+  
 
     
    
