@@ -25,13 +25,14 @@ const PortfolioCard = ({ work, index }) => {
       />
 
       {/* Card inner */}
-      <div className="relative z-10 rounded-2xl overflow-hidden bg-[#0a0a1a] border border-white/[0.06] group-hover:border-transparent transition-all duration-500">
+      <div className="relative z-10 p-3 rounded-2xl overflow-hidden bg-[#0a0a1a] border border-white/[0.06] 
+      group-hover:border-transparent transition-all duration-500">
         {/* Image container */}
-        <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl flex items-center justify-center bg-[#0a0a1a]">
           <Image
             src={work.img}
             alt={work.title}
-            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+            className="w-full h-[95%] object-contain transition-all duration-700 group-hover:scale-105"
           />
 
           {/* Top gradient overlay */}
