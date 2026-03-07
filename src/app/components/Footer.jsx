@@ -53,12 +53,13 @@ const Footer = () => {
         <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8">
 
           {/* Top section — CTA + Logo */}
-          <div className="flex flex-col lg:flex-row items-start justify-between gap-12 mb-16">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 mb-16">
             <div className="flex flex-col items-center lg:items-start">
               <Link href="/" className="group">
                 <Image
                   src={logo1}
                   alt="Ideafil Logo"
+                  height={80}
                   className="object-contain w-[160px] lg:w-[200px] transition-all duration-300 group-hover:brightness-125"
                 />
               </Link>
