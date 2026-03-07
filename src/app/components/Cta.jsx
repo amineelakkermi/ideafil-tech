@@ -54,14 +54,14 @@ const Cta = () => {
         <Image
         src={lock}
         alt='Lock image'
-        className='object-cover rotate-6 w-[180px] sm:w-[220px] md:w-[300px] h-[180px] sm:h-[220px] md:h-[300px]'
+        className='object-cover duration-300 rotate-6  hover:scale-105 w-[180px] sm:w-[220px] md:w-[300px] h-[180px] sm:h-[220px] md:h-[300px]'
         
        />
 
         <Image
         src={star}
         alt='Star image'
-        className='object-cover -rotate-6 w-[180px] sm:w-[220px] md:w-[300px] h-[180px] sm:h-[220px] md:h-[300px]'        
+        className='object-cover duration-300 -rotate-6 hover:scale-105  w-[180px] sm:w-[220px] md:w-[300px] h-[180px] sm:h-[220px] md:h-[300px]'        
        />
         </div>
 
