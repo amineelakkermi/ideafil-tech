@@ -1,6 +1,7 @@
 'use client'
 
 import Image from "next/image"
+import Link from "next/link"
 import { worksData } from "../data/worksData"
 import styles from "../style"
 
@@ -62,17 +63,12 @@ const PortfolioCard = ({ work, index }) => {
                 <div className="h-[2px] w-0 group-hover:w-12 transition-all duration-700 mt-1 rounded-full" style={{ background: color }} />
               </div>
 
-              {/* Behance pill */}
-              <a
-                href={work.Url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-shrink-0 backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 flex items-center gap-2 hover:bg-white/20 transition-all duration-300"
-                onClick={(e) => e.stopPropagation()}
+              {/* Detail pill */}
+              <span
+                className="flex-shrink-0 backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 flex items-center gap-2 group-hover:bg-white/20 transition-all duration-300"
               >
-                <span className="text-white/90 text-sm font-tajwal">مشاهدة المشروع</span>
-               
-              </a>
+                <span className="text-white/90 text-sm font-tajwal">تفاصيل المشروع</span>
+              </span>
             </div>
           </div>
         </div>
@@ -100,7 +96,9 @@ const HorizontalPortfolio = () => {
     >
       <div dir="rtl" className={`${styles.container} mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6`}>
         {worksData.map((work, index) => (
-          <PortfolioCard key={work.id} work={work} index={index} />
+          <Link key={work.id} href={`/works/${work.slug}`}>
+            <PortfolioCard work={work} index={index} />
+          </Link>
         ))}
       </div>
     </div>
