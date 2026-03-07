@@ -272,7 +272,7 @@ export default function Navbar() {
               {/* CTA Button */}
              <Link
              href={'#contact'}
-             className="flex items-center justify-center w-full py-2.5 rounded-[8px] font-semibold
+             className="hidden md:flex items-center justify-center w-full py-2.5 rounded-[8px] font-semibold
             text-white text-lg font-tajwal relative overflow-hidden transition-all duration-300
             hover:shadow-[0_0_30px_rgba(0,143,245,0.3)] active:scale-[0.98]"
              style={{

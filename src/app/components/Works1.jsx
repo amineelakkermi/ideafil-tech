@@ -1,9 +1,4 @@
 'use client'
-
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-
 import Image from "next/image"
 import Link from "next/link"
 
@@ -11,11 +6,7 @@ import styles from "../style"
 import Paragraph from "./Paragraph"
 
 import conex from "../../../public/works/conex.png"
-import meliha from "../../../public/works/meliha.png"
 import rahafah from "../../../public/works/rahafah.png"
-import gsa from "../../../public/works/gsa.png"
-import vilack from "../../../public/works/vilack.png"
-import behance from "../../../public/socialMedia/behance.png"
 import HorizontalPortfolio from "./HorizontalPortfolio"
 import Title from "./Title"
 
