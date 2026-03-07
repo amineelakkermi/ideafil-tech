@@ -1,7 +1,7 @@
 'use client';
 
 import Image from "next/image";
-import logo1 from "../../../public/main/logo1.png";
+import logo1 from "../../../public/logo1.png";
 import linkedin from "../../../public/socialMedia/linkedin.png";
 import instagram from "../../../public/socialMedia/instagram.png";
 import x from "../../../public/socialMedia/x.png";
