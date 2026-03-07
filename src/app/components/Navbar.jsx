@@ -38,7 +38,7 @@ export default function Navbar() {
   // Gérer le scroll pour changer le fond
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      setScrolled(window.scrollY > 40);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -212,11 +212,11 @@ export default function Navbar() {
       
       <nav
         dir="rtl"
-        className={`sticky border-b border-white/10 top-0 left-0 right-0 z-[999] transition-all duration-300 
-          bg-dark
+        className={`sticky bg-dark ${scrolled ? 'border-b' : 'border-none'} border-white/10 top-0 left-0 right-0
+         z-[998] transition-all duration-300 
           `}
       >
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
           <div className="h-[80px] lg:h-[90px] flex items-center justify-between relative">
 
             {/* Mobile Menu Button (always left) */}

@@ -10,7 +10,7 @@ const ScrollTop = () => {
   }
 
   return (
-    <div className="fixed right-4 md:right-8 bottom-4 z-[999]"> {/* moins de marge sur mobile */}
+    <div className="fixed right-4 md:right-8 bottom-4 z-[9999]"> {/* moins de marge sur mobile */}
 
       <button
         onClick={handleScrollTop}
