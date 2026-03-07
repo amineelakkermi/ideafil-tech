@@ -6,9 +6,10 @@ import React, { useEffect, useRef, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
 const navLinks = [
-  { name: 'الرئيسيــة', href: '/' },
-  { name: 'من نحـــن', href: '/about' },
-  { name: 'الأعمـــال الأخيرة', href: '/works' },
+  { name: 'الرئيسيــة', href: '#stats' },
+  { name: 'خدماتنــا', href: '#services' },
+  { name: 'معرض الأعمال', href: '#portfolio' },
+  { name: 'تواصل معنا', href: '#contact' },
 ]
 
 export default function Navbar() {
@@ -19,6 +20,20 @@ export default function Navbar() {
   const mobileListRef = useRef(null);
   const pathname = usePathname();
   const router = useRouter();
+
+  // Handle hash navigation when component mounts or pathname changes
+  useEffect(() => {
+    if (typeof window !== 'undefined' && window.location.hash) {
+      const hash = window.location.hash;
+      const element = document.querySelector(hash);
+      if (element) {
+        // Small delay to ensure the page is fully rendered
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [pathname]);
 
   // Gérer le scroll pour changer le fond
   useEffect(() => {
@@ -89,6 +104,19 @@ export default function Navbar() {
   const handleLinkClick = (e, href) => {
     e.preventDefault();
     setOpen(false);
+
+    if (href.startsWith('#')) {
+      // If we're not on the home page, navigate there first
+      if (pathname !== '/') {
+        router.push('/' + href);
+        return;
+      }
+      
+      // If we're already on home page, just scroll to the section
+      const element = document.querySelector(href);
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
 
     if (href.startsWith('/#')) {
       const hash = href.replace('/#', '#');
@@ -184,9 +212,9 @@ export default function Navbar() {
       
       <nav
         dir="rtl"
-        className={`sticky top-0 left-0 right-0 z-[999] transition-all duration-300 ${
-          scrolled ? 'bg-dark' : 'bg-transparent'
-        }`}
+        className={`sticky border-b border-white/10 top-0 left-0 right-0 z-[999] transition-all duration-300 
+          bg-dark
+          `}
       >
         <div className="max-w-6xl mx-auto px-6">
           <div className="h-[80px] lg:h-[90px] flex items-center justify-between relative">
@@ -216,7 +244,7 @@ export default function Navbar() {
             {/* Logo Right */}
             <Link href='/' className="flex items-center min-w-[150px]">
               <Image
-                src="/logo1.png"
+                src="/main/logo1.png"
                 alt="Ideafil Logo Arabic"
                 width={200}
                 height={80}
@@ -227,7 +255,7 @@ export default function Navbar() {
 
             {/* Desktop Links */}
             <div className="hidden md:flex items-center gap-16 font-medium">
-              {navLinks.map((link) => (
+              {navLinks.slice(0,3).map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
@@ -243,7 +271,7 @@ export default function Navbar() {
             <div className="flex items-center justify-start min-w-[150px] gap-4">
               {/* CTA Button */}
              <Link
-             href="/contact"
+             href={'#contact'}
              className="hidden md:inline-flex items-center justify-center
              px-8 py-3 relative overflow-hidden
              rounded-[4px] font-medium text-white
@@ -271,86 +299,127 @@ export default function Navbar() {
         {(open || isAnimating) && (
           <div
             ref={mobileMenuRef}
-            className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center
-               bg-gradient-to-br from-[#110023] via-[#2a0055] to-[#110023] ${
+            className={`fixed inset-0 z-[9999] flex flex-col ${
               !open && isAnimating ? 'animate-menu-close' : ''
             }`}
+            style={{ background: '#050519' }}
             onClick={(e) => {
               if (e.target === mobileMenuRef.current) {
                 setOpen(false);
               }
             }}
           >
-            <div className="absolute inset-0 bg-black/20" />
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-20 right-20 w-32 h-32 bg-white rounded-full" />
-              <div className="absolute bottom-20 left-20 w-24 h-24 bg-white rounded-full" />
+            {/* Ambient glow effects */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              <div 
+                className="absolute -top-24 -right-24 w-64 h-64 rounded-full opacity-20"
+                style={{ background: 'radial-gradient(circle, #008FF5 0%, transparent 70%)' }}
+              />
+              <div 
+                className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full opacity-15"
+                style={{ background: 'radial-gradient(circle, #7F00FE 0%, transparent 70%)' }}
+              />
+              {/* Subtle grid pattern */}
+              <div 
+                className="absolute inset-0 opacity-[0.03]"
+                style={{
+                  backgroundImage: 'linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)',
+                  backgroundSize: '40px 40px',
+                }}
+              />
             </div>
 
-            <nav 
-              aria-label="Main navigation" 
-              className="w-full px-8"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                onClick={() => setOpen(false)}
-                className="absolute top-8 left-8 text-white hover:text-purple-200 transition-all duration-300 transform hover:scale-110 hover:rotate-90"
-                aria-label="Fermer le menu"
-              >
-                <svg
-                  className="w-6 h-6"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  viewBox="0 0 24 24"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-
-              <div className="absolute top-8 right-8">
+            {/* Header */}
+            <div className="relative z-10 flex items-center justify-between px-6 pt-8">
+              <div>
                 <Image
-                  src="/logo1.png"
+                  src="/main/logo1.png"
                   alt="Ideafil Logo Arabic"
                   width={120}
                   height={50}
-                  className="object-contain filter brightness-0 invert"
+                  className="object-contain"
                 />
               </div>
+              <button
+                onClick={() => setOpen(false)}
+                className="w-10 h-10 flex items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                aria-label="Fermer le menu"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
 
-              <ul ref={mobileListRef} className="flex flex-col items-center gap-6 z-10 mt-8">
+            {/* Nav Links */}
+            <nav 
+              aria-label="Main navigation" 
+              className="relative z-10 flex-1 flex flex-col justify-center px-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ul ref={mobileListRef} className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
                   <li 
                     key={link.name} 
-                    className="flex items-start gap-4 group opacity-0 translate-y-5 transition-all duration-300"
+                    className="opacity-0 translate-y-5 transition-all duration-500"
                     style={{
                       opacity: open ? 1 : 0,
                       transform: open ? 'translateY(0)' : 'translateY(20px)',
-                      transitionDelay: open ? `${index * 100}ms` : '0ms',
+                      transitionDelay: open ? `${150 + index * 100}ms` : '0ms',
                     }}
                   >
                     <Link
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className="text-white text-[20px] font-medium px-8 py-4 rounded-full border-2 border-white/30 hover:border-white hover:bg-white/10 transform transition-all duration-300 hover:scale-105 w-48 text-center backdrop-blur-sm"
+                      className="group flex items-center gap-4 py-5 px-5 rounded-2xl transition-all duration-300 hover:bg-white/5"
                     >
-                      <span className="relative z-10 transition-all duration-300 group-hover:text-purple-300">{link.name}</span>
+                      <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-all duration-300 group-hover:scale-110"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(0,143,245,0.15), rgba(127,0,254,0.1))',
+                          border: '1px solid rgba(255,255,255,0.08)',
+                        }}
+                      >
+                        <span className="text-[#00BFFE] text-sm font-bold">{String(index + 1).padStart(2, '0')}</span>
+                      </div>
+                      <div className="flex flex-col">
+                        <span className="text-white text-[22px] font-semibold font-tajwal transition-all duration-300 group-hover:text-[#00BFFE]">
+                          {link.name}
+                        </span>
+                      </div>
+                      <svg className="w-5 h-5 text-white/20 mr-auto transition-all duration-300 group-hover:text-[#00BFFE] group-hover:-translate-x-1" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                      </svg>
                     </Link>
+                    {index < navLinks.length - 1 && (
+                      <div className="mx-5 border-b border-white/5" />
+                    )}
                   </li>
                 ))}
               </ul>
-
-              {/* Contact Button */}
-              <div className="mt-8 flex justify-center">
-                <Link
-                  href="/contact"
-                  className="flex items-center justify-center px-8 py-4 rounded-full border-2 border-white/30 hover:border-white hover:bg-white/10 transform transition-all duration-300 hover:scale-105 w-48 text-center backdrop-blur-sm text-white text-[20px] font-medium"
-                >
-                  <span className="relative z-10 transition-all duration-300 group-hover:text-purple-300">تواصل معنا</span>
-                </Link>
-              </div>
-            
             </nav>
+
+            {/* Bottom CTA */}
+            <div 
+              className="relative z-10 px-8 pb-10 transition-all duration-500"
+              style={{
+                opacity: open ? 1 : 0,
+                transform: open ? 'translateY(0)' : 'translateY(20px)',
+                transitionDelay: open ? `${150 + navLinks.length * 100}ms` : '0ms',
+              }}
+            >
+              <Link
+                href="#contact"
+                onClick={(e) => handleLinkClick(e, '#contact')}
+                className="flex items-center justify-center w-full py-4 rounded-xl font-semibold text-white text-lg font-tajwal relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,143,245,0.3)] active:scale-[0.98]"
+                style={{
+                  background: 'linear-gradient(135deg, #008FF5 0%, #0070DD 100%)',
+                }}
+              >
+                <span className="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10">ابدأ مشروعك الآن</span>
+              </Link>
+              <p className="text-center text-white/30 text-sm mt-4 font-tajwal">أيدفل تك — حلول تقنية تصنع الفرق</p>
+            </div>
           </div>
         )}
       </nav>

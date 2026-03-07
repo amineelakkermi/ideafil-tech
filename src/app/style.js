@@ -4,7 +4,9 @@ const styles = {
     title: "text-[35px] lg:text-[65px] font-bold text-white",
     paragraph: "font-normal text-[18px] leading-[30.8px] text-gray-400",
     paragraph2: "font-normal text-[14px] lg:text-[22px] leading-[30.8px] lg:leading-[45px]",
-  
+    
+    container: `max-w-6xl mx-auto flex flex-col justify-center items-center gap px-6 `,
+
     flexCenter: "flex justify-center items-center",
     flexStart: "flex justify-center items-start",
   

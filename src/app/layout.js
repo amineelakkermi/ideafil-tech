@@ -1,9 +1,9 @@
 import localFont from "next/font/local"
+import { Tajawal } from "next/font/google"
 import "./globals.css"
 import Footer from "./components/Footer"
 import ScrollTop from "./components/ScrollTop"
-import FloatingButtons from "./components/FloatingButtons"
-import SmoothProvider from "./components/SmoothProvider"
+import Navbar from "./components/Navbar"
 
 const handicrafts = localFont({
   src: "./fonts/TheYearofHandicrafts-Regular.otf",
@@ -11,6 +11,15 @@ const handicrafts = localFont({
   weight: "400",
   display: "swap",
 })
+
+
+const tajwal = Tajawal({
+  subsets: ["arabic"],
+  variable: "--font-tajwal",
+  weight: ["400", "500", "700"],
+  display: "swap",
+})
+
 
 export const metadata = {
   metadataBase: new URL("https://ideafil.sa/"), 
@@ -64,15 +73,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ar" dir="rtl">
-      <body className={`${handicrafts.variable} antialiased`}>
+      <body className={`${handicrafts.variable} ${tajwal.variable} antialiased`}>
 
         <ScrollTop />
-        <FloatingButtons />
+        <Navbar />
 
-        <SmoothProvider>
+
           {children}
           <Footer />
-        </SmoothProvider>
 
       </body>
     </html>

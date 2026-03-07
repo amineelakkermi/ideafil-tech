@@ -1,5 +1,8 @@
 import Image from 'next/image'
-import ctaBg from "../../../public/ctaBg.png";
+import technologyBg from "../../../public/main/technologyBg.png";
+import star from "../../../public/main/star.png";
+import lock from "../../../public/main/lock.png";
+
 import styles from '../style';
 import Paragraph from './Paragraph';
 import BigTitle from './BigTitle';
@@ -11,42 +14,65 @@ const Cta = () => {
     <section
       id="stats"
       className={`relative w-full min-h-[100vh]
-    
-      bg-dark overflow-hidden flex flex-col justify-center items-center`}
+
+      bg-dark  flex flex-col justify-center items-center`}
     >
-      {/* Background Image */}
-      <Image
-        src={ctaBg}
-        alt="Background gradient"
-        fill
-        className="object-cover z-0 min-h-[100vh]"
-        priority
-      />
-
-      <div className='relative z-10 w-full flex flex-col justify-center items-center gap-12'>
     
-       
-     <div>
-      <Title className="text-[35px] lg:text-[40px] text-center text-white">
-        لنكتشــف معا قـــوة حضــــورك
-       </Title>
+    <div className={`w-[100%] min-h-[100%] z-10 absolute inset-0 opacity-60`}>
+    <Image
+    src={technologyBg}
+    alt='technology background'
+    className='object-cover'
+    fill
+    />
+    </div>
 
-       <Title className="text-[35px] lg:text-[40px] text-center text-white">
-        تواصل معنا اليوم وابدأ رحلتك نحو التأثير والتميز
-       </Title>
+    {/* Blue overlay */}
+    <div className="absolute inset-0 z-10 bg-[#050d30]/70" />
 
-     </div>
-       
+
+      <div className={`${styles.container} ${styles.marginY} z-20`}>
+        {/* Section Header */}
+        <div className="text-center">
+         
+          <Title className={`${styles.title}`}>
+           <span className='text-blue'>ابتكـــار - جـــودة</span>
+           <br />
+           أمــــان
+          </Title>
+
+          <Paragraph className="mt-5 text-gray-300 max-w-[600px] mx-auto text-center">
+          ابدأ رحلتك الرقمية مع <a href="#contact" className='text-blue'>أيدفل تك</a>،
+          واحصل على حلول تقنية مبتكرة وخدمات رقمية مصممة لتطوير أعمالك وتحقيق رؤيتك
+         </Paragraph>
+          
+        </div>
+
+
+        <div className='relative w-full flex  justify-center items-center'>
       
-      <div className="inline-block max-w-[250px] px-10 py-2 rounded-full bg-pink">
-      <Link href='/contact' className="text-white text-base sm:text-lg">
-       أكيد حــاب تكلمـــنا
-      </Link>
-      </div>
+        <Image
+        src={lock}
+        alt='Lock image'
+        className='object-cover rotate-6'
+        width={300}
+        height={300}
+       />
 
-     
-      </div>
+        <Image
+        src={star}
+        alt='Star image'
+        className='object-cover -rotate-6'
+        width={350}
+        height={350}
+       />
+        </div>
 
+       
+
+          
+      
+      </div>
       
 
     </section>

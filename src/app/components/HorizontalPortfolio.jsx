@@ -1,108 +1,107 @@
 'use client'
 
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import { worksData } from "../data/worksData"
 import styles from "../style"
-import behance from '../../../public/behance.png'
+import behance from '../../../public/socialMedia/behance.png'
+
+const accentColors = ['#00BFFE', '#7F00FE', '#00D4AA', '#FF6B6B']
+
+const PortfolioCard = ({ work, index }) => {
+  const color = accentColors[index % accentColors.length]
+
+  return (
+    <div
+      className="portfolio-card group relative rounded-2xl overflow-hidden cursor-pointer"
+      style={{
+        animationDelay: `${index * 0.12}s`,
+      }}
+    >
+      {/* Animated border glow */}
+      <div
+        className="absolute -inset-[1px] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
+        style={{
+          background: `linear-gradient(135deg, ${color}50, transparent 40%, transparent 60%, ${color}50)`,
+        }}
+      />
+
+      {/* Card inner */}
+      <div className="relative z-10 rounded-2xl overflow-hidden bg-[#0a0a1a] border border-white/[0.06] group-hover:border-transparent transition-all duration-500">
+        {/* Image container */}
+        <div className="relative w-full aspect-[4/3] overflow-hidden">
+          <Image
+            src={work.img}
+            alt={work.title}
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+          />
+
+          {/* Top gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Bottom gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+          {/* Corner accent */}
+          <div
+            className="absolute top-4 left-4 w-8 h-8 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-100 scale-50 flex items-center justify-center"
+            style={{ background: color, boxShadow: `0 0 20px ${color}60` }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M7 17L17 7M17 7H7M17 7V17" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </div>
+
+          {/* Content overlay (bottom) */}
+          <div className="absolute bottom-0 right-0 left-0 p-5 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+            <div className="flex items-end justify-between gap-3">
+              {/* Title */}
+              <div>
+                <h3 className="text-white text-lg md:text-xl font-bold font-tajwal drop-shadow-lg">
+                  {work.title}
+                </h3>
+                <div className="h-[2px] w-0 group-hover:w-12 transition-all duration-700 mt-1 rounded-full" style={{ background: color }} />
+              </div>
+
+              {/* Behance pill */}
+              <a
+                href={work.Url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-shrink-0 backdrop-blur-xl bg-white/10 border border-white/20 rounded-full px-4 py-2 flex items-center gap-2 hover:bg-white/20 transition-all duration-300"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <span className="text-white/90 text-sm font-tajwal">مشاهدة المشروع</span>
+               
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom info bar */}
+        <div className="px-5 py-4 flex items-center justify-between border-t border-white/[0.04]">
+          <h4 className="text-white/70 text-[15px] font-semibold font-tajwal group-hover:text-white transition-colors duration-300">
+            {work.title}
+          </h4>
+          <div
+            className="w-2 h-2 rounded-full transition-all duration-500 group-hover:shadow-lg"
+            style={{ background: `${color}60`, boxShadow: `0 0 0px ${color}00` }}
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 const HorizontalPortfolio = () => {
-  const component = useRef(null)
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    let ctx = gsap.context(() => {
-      const sections = gsap.utils.toArray(".horiz-gallery-wrapper")
-
-      sections.forEach((sec) => {
-        const pinWrap = sec.querySelector(".horiz-gallery-strip")
-
-        function refresh() {
-          pinWrapWidth = pinWrap.scrollWidth
-          horizontalScrollLength = pinWrapWidth - window.innerWidth + 150
-        }
-
-        let pinWrapWidth = pinWrap.scrollWidth
-        let horizontalScrollLength = pinWrapWidth - window.innerWidth + 150
-
-        ScrollTrigger.addEventListener("refreshInit", refresh)
-
-        gsap.to(pinWrap, {
-          x: () => horizontalScrollLength, // défilement vers la gauche
-          ease: "none",
-          scrollTrigger: {
-            trigger: sec,
-            pin: true,
-            scrub: 1,
-            start: "center center",
-            end: () => `+=${pinWrapWidth}`,
-            invalidateOnRefresh: true,
-          }
-        })
-      })
-    }, component)
-
-    return () => ctx.revert()
-  }, [])
-
   return (
     <section
       id="portfolio"
-      ref={component}
       className={`relative overflow-hidden bg-dark ${styles.padding}`}
     >
-      <div className="horiz-gallery-wrapper flex flex-nowrap justify-start relative">
-        <div dir="rtl" className="horiz-gallery-strip flex flex-nowrap gap">
-          {worksData.map((work) => (
-            <div
-              key={work.id}
-              className="relative w-[400px] sm:w-[450px] md:w-[500px] h-[350px] sm:h-[400px] 
-              flex-shrink-0 group"
-            >
-              <Image
-                src={work.img}
-                alt={work.title}
-                className="w-full h-full object-cover rounded-lg"
-              />
-
-              {/* Overlay on hover */}
-              <div className="absolute flex bottom-3 right-3
-               opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg">
-                <div className="flex  items-end gap-2">
-             {/* Title */}
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 py-2 text-right">
-                    <h3 className="text-white text-lg md:text-xl font-semibold">
-                      {work.title}
-                    </h3>
-                  </div>
-                  {/* Behance Link */}
-                  <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-full px-4 py-2">
-                    <a
-                      href={work.behanceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-white/90 hover:text-white text-base md:text-lg"
-                    >
-                      <span>مشاهدة في</span>
-                      <Image
-                        src={behance}
-                        alt="Behance"
-                        width={20}
-                        height={20}
-                        className="object-contain"
-                      />
-                    </a>
-                  </div>
-                  
-                </div>
-              </div>
-
-            </div>
-          ))}
-        </div>
+      <div dir="rtl" className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {worksData.map((work, index) => (
+          <PortfolioCard key={work.id} work={work} index={index} />
+        ))}
       </div>
     </section>
   )

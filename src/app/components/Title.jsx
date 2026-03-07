@@ -11,30 +11,20 @@ const Title = ({ children, className }) => {
   const titleRef = useRef(null)
 
   useEffect(() => {
-    const el = titleRef.current
-
-    // نقسم النص إلى كلمات
-    const words = el.textContent.split(' ').map(word => `<span class="inline-block mr-2">${word}</span>`).join(' ')
-    el.innerHTML = words
-
-    const spans = el.querySelectorAll('span')
-
-    // إعداد GSAP + ScrollTrigger لكل الكلمات
-    gsap.set(spans, { opacity: 0, y: 20 })
-
-    gsap.to(spans, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top 85%',
-        toggleActions: 'play none none reverse',
-      },
-      y: 0,
-      opacity: 1,
-      stagger: 0.1,
+    gsap.from(titleRef.current, {
+      y: 30,
+      opacity: 0,
       duration: 0.8,
       ease: 'power3.out',
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: 'top 85%',
+        end: 'bottom 15%',
+        toggleActions: 'play none none reverse'
+      }
     })
   }, [])
+
 
   return (
     <div>

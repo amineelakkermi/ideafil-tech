@@ -1,12 +1,13 @@
 {
-  "name": "ideafil",
+  "name": "ideafil-tech",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "export": "next build && next export"
   },
   "dependencies": {
     "framer-motion": "^12.34.0",
@@ -15,6 +16,7 @@
     "next": "16.1.6",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "react-toastify": "^11.0.5",
     "styled-jsx": "^5.1.7",
     "swiper": "^12.1.2"
   },
