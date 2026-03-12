@@ -98,7 +98,7 @@ const Services = () => {
   return (
     <section id='services' className={`${styles.paddingY} flex justify-center items-center z-10 relative min-h-[100vh] bg-dark`}>
     <div className={`${styles.container}`}>
-     <div className='absolute -top-5 -right-16'>
+    <div className='absolute bottom-5 -right-16'>
     <svg width="50" height="50" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M46.6706 46.2431L43.0068 83.5083L82.591 75.5361L84.2852 39.5287L46.6706 46.2431ZM81.069 73.8538L56.6996 78.7616L58.5393 60.1345L81.9414 55.3124L81.069 73.8538ZM57.0742 58.4535L55.0335 79.0946L44.8772 81.1394L48.1436 47.9263L82.5833 41.7792L82.0412 53.3054L57.0742 58.4535Z" fill="#1E2CFB"/>
     <path d="M35.7562 35.8744L29.602 97.3188L41.0393 113.034L106.151 101.422L108.299 39.9729L96.5079 23.7637L35.7562 35.8744ZM41.1674 111.045L31.7323 98.081L93.435 85.7606L104.029 99.8343L41.1674 111.045ZM92.7199 83.9266L31.359 96.1743L37.2276 37.5585L95.5885 25.9296L92.7199 83.9266ZM106.709 39.9631L104.653 98.5586L94.2745 84.7702L97.1302 26.8071L106.709 39.9631Z" fill="#1E2CFB"/>

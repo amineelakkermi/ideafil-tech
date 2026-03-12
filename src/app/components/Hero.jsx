@@ -57,7 +57,7 @@ const Hero = () => {
     </div>
      
 
-    <div className='circle1 opacity-80' />
+    <div className='circle1 opacity-100' />
   
     
 

@@ -44,34 +44,25 @@ export default function WorkDetailClient({ slug }) {
           {/* Title area */}
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
             <div>
-              <div
-                className="inline-block px-4 py-1.5 rounded-full text-sm font-tajwal mb-6 border"
+              <a
+                href={work.Url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-tajwal font-bold mb-6 border transition-all duration-300 hover:scale-105"
                 style={{
                   color: color,
                   borderColor: `${color}30`,
                   background: `${color}10`,
                 }}
               >
-                {work.category}
-              </div>
+                <ExternalLink className="w-4 h-4" />
+                <span>زيارة الموقع</span>
+              </a>
               <h1 className="text-5xl lg:text-7xl font-extrabold font-tajwal leading-tight">
                 {work.title}
               </h1>
             </div>
 
-            <a
-              href={work.Url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex-shrink-0 inline-flex items-center gap-3 px-8 py-4 rounded-xl font-tajwal font-bold text-lg transition-all duration-300 hover:scale-105"
-              style={{
-                background: color,
-                boxShadow: `0 0 40px ${color}30`,
-              }}
-            >
-              <span>زيارة الموقع</span>
-              <ExternalLink className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-            </a>
           </div>
 
           {/* Project image */}

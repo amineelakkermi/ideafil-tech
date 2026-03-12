@@ -10,7 +10,7 @@ import Squares from './components/Squares';
 export default function Home() {
   return (
     <div>
-      <div className='min-h-[100vh] relative bg-dark z-[999]'>
+      <div className='min-h-[90vh] relative bg-dark z-[999]'>
       <Navbar />
       <Hero />
       <div className='absolute inset-0 w-full h-[100%] z-[1]'>
