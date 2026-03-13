@@ -29,6 +29,7 @@ const Title = ({ children, className }) => {
   return (
     <div>
       <h1
+      ref={titleRef}
         className={`text-white text-center ${className}`}
       >
         {children}
