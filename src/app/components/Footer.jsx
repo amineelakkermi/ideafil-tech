@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import logo1 from "../../../public/logo1.png";
+import ideafil from "../../../public/ideafil.png";
 import linkedin from "../../../public/socialMedia/linkedin.png";
 import instagram from "../../../public/socialMedia/instagram.png";
 import x from "../../../public/socialMedia/x.png";
@@ -55,13 +56,13 @@ const Footer = () => {
           {/* Top section — CTA + Logo */}
           <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 mb-16">
             <div className="flex flex-col items-center lg:items-start">
-              <Link href="/" className="group">
+              <Link href="/" className="group flex items-center gap-3">
                 <Image
                   src={logo1}
                   alt="Ideafil Logo"
-                  height={80}
                   className="object-contain w-[160px] lg:w-[200px] transition-all duration-300 group-hover:brightness-125"
                 />
+              
               </Link>
               <p className="text-white/60 text-[15px] font-tajwal max-w-[300px] text-center lg:text-right leading-relaxed">
               شريكك التقني اللي يفهمك ويمشي معك خطوة بخطوة آیدفل تك هو خيارك الأول
@@ -121,6 +122,14 @@ const Footer = () => {
 
           {/* Bottom bar */}
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Ideafil */}
+            <Image
+            src={ideafil}
+            alt="Ideafil"
+            height={80}
+            className="object-contain w-[160px] transition-all duration-300 group-hover:brightness-125"
+            />
+          
             {/* Social icons */}
             <div className="flex items-center gap-3">
               {socialLinks.map((social) => (
