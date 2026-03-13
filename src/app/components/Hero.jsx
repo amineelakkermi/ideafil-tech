@@ -21,13 +21,13 @@ const Hero = () => {
       <BigTitle title={<>
         مرحبا بك في
         <br className='hidden sm:block' />
-       <span className='text-blue'> أيـــدفل تك</span>
+       <span className='text-blue'> أيـــدفل تكنولوجي</span>
         </>} />
     
 
       {/* Paragraphe */}
       <Paragraph className="mt-5 text-gray-300">
-      الجناح التقني من مجموعة Ideafil , نقدم لكم حلول تقنية تصنع الفرق وتدفع أعمالكم للأمام 
+      الجناح التقني من مجموعة أيدفل , نقدم لكم حلول تقنية تصنع الفرق وتدفع أعمالكم للأمام 
       </Paragraph>
 
       {/* Buttons */}

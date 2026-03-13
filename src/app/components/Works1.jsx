@@ -30,7 +30,7 @@ const Works1 = () => {
           <Paragraph className=" text-white 
           max-w-[500px]
           text-center lg:text-right">
-          استكشف مجموعة من المشاريع التي قمنا بتصميمها وتطويرها لعملائنا :
+          اكتشف مجموعة من المشاريع التي قمنا بتصميمها وتطويرها لعملائنا :
           </Paragraph>
         </div>
        

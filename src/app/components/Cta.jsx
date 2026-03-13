@@ -42,7 +42,7 @@ const Cta = () => {
           </Title>
 
           <Paragraph className="mt-5 text-gray-300 max-w-[600px] mx-auto text-center">
-          ابدأ رحلتك الرقمية مع <a href="#contact" className='text-blue'>أيدفل تك</a>،
+          ابدأ رحلتك الرقمية مع <a href="#contact" className='text-blue'>أيدفل تكنولوجي</a>،
           واحصل على حلول تقنية مبتكرة وخدمات رقمية مصممة لتطوير أعمالك وتحقيق رؤيتك
          </Paragraph>
           

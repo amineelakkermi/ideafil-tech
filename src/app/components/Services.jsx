@@ -109,7 +109,7 @@ const Services = () => {
     </svg>
     </div>
     <Paragraph className='text-white text-[25px] max-w-[650px]  relative'>
-    في <span className='text-blue'>أيدفل تك </span> قيمنا هي سر تميزنا , نبتكر , نحمي بياناتك ونقدم لك أفضل جودة , تشمل خدماتنا الأساسية :
+    في <span className='text-blue'>أيدفل تكنولوجي </span> قيمنا هي سر تميزنا , نبتكر , نحمي بياناتك ونقدم لك أفضل جودة , تشمل خدماتنا الأساسية :
     </Paragraph>
 
     {/* Service Cards */}
