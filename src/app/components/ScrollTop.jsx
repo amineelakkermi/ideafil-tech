@@ -10,7 +10,7 @@ const ScrollTop = () => {
   }
 
   return (
-    <div className="hidden fixed right-4 md:right-8 bottom-4 z-[9999]"> 
+    <div className="fixed right-4 md:right-8 bottom-4 z-[9999]"> 
 
       <button
         onClick={handleScrollTop}
