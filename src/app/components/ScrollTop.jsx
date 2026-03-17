@@ -17,7 +17,6 @@ const ScrollTop = () => {
         className="relative w-16 h-16 md:w-28 md:h-28 cursor-pointer"
       >
 
-        {/* Cercle texte rotatif */}
         <svg
           viewBox="0 0 100 100"
           className="w-full h-full animate-spin-slow"

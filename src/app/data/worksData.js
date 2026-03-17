@@ -3,21 +3,24 @@ import conex from "../../../public/works/conex.png"
 import waq3y from "../../../public/works/waq3y.png"
 import ideafil from "../../../public/works/ideafil.png"
 import maqas from "../../../public/works/maqas.png"
+import kiar from "../../../public/works/kiar.png"
+import vilack from "../../../public/works/vilack.png"
+
 
 
 export const worksData = [
   {
     id: 1,
-    title: "CONEX ™",
-    slug: "conex",
-    img: conex,
-    Url: "https://sa-conex.com/",
-description:
-"تصميم وتطوير موقع تعريفي لشركة CONEX المتخصصة في الأرضيات الصناعية والطلاءات الواقية في السعودية، مع إبراز خبرة الشركة ومشاريعها عبر واجهة حديثة وتجربة مستخدم احترافية.",
-    duration: "10 أيام",
-    technologies: ["React.js", "Tailwind CSS"],
+    title: "Ideafil",
+    slug: "ideafil",
+    img: ideafil,
+    Url: "https://ideafil.sa/",
+    description: "الموقع الرسمي لمجموعة أيدفل، يعكس هوية العلامة التجارية بتصميم عصري وتجربة تفاعلية مميزة تبرز خدمات المجموعة المتنوعة.",
+    duration: "أسبوع",
+    technologies: ["Next.js", "Tailwind CSS", "GSAP"],
     category: "موقع تعريفي",
   },
+  
   {
     id: 2,
     title: "Waq3y",
@@ -30,15 +33,17 @@ description:
     technologies: ["React.js", "Tailwind CSS"],
     category: "صفحة هبوط",
   },
+  
   {
     id: 3,
-    title: "Ideafil",
-    slug: "ideafil",
-    img: ideafil,
-    Url: "https://ideafil.sa/",
-    description: "الموقع الرسمي لمجموعة أيدفل، يعكس هوية العلامة التجارية بتصميم عصري وتجربة تفاعلية مميزة تبرز خدمات المجموعة المتنوعة.",
-    duration: "أسبوع",
-    technologies: ["Next.js", "Tailwind CSS", "GSAP"],
+    title: "CONEX ™",
+    slug: "conex",
+    img: conex,
+    Url: "https://sa-conex.com/",
+description:
+"تصميم وتطوير موقع تعريفي لشركة CONEX المتخصصة في الأرضيات الصناعية والطلاءات الواقية في السعودية، مع إبراز خبرة الشركة ومشاريعها عبر واجهة حديثة وتجربة مستخدم احترافية.",
+    duration: "10 أيام",
+    technologies: ["React.js", "Tailwind CSS"],
     category: "موقع تعريفي",
   },
   {
@@ -52,4 +57,26 @@ description:
     technologies: ["React.js", "Tailwind CSS"],
     category: "صفحة هبوط",
   },
+  {
+    id: 5,
+    title: "Vilack",
+    slug: "vilack",
+    img: vilack,
+    Url: "https://vilack.com/",
+    description: "تصميم وتطوير متجر إلكتروني احترافي لعلامة «Vilack» المتخصصة في بيع العطور الفاخرة ذات توليفات فرنسية وشرقية وعطور النيش المميزة، مع واجهة جذابة وتجربة مستخدم سلسة تُظهر المنتجات بروائحها الفريدة وجودتها العالية.",
+    duration: "5 أيام",
+    technologies: ["React.js", "Tailwind CSS"],
+    category: "متجر إلكتروني",
+},
+  {
+    id: 6,
+    title: "Kiar",
+    slug: "kiar",
+    img: kiar,
+    Url: "https://kiar-ksa.com/",
+    description: "تصميم وتطوير متجر إلكتروني احترافي لعلامة «Kiar» المتخصصة في بيع السبح وموادها الفاخرة في المملكة العربية السعودية، مع واجهة أنيقة وتجربة مستخدم سلسة تعكس جودة المنتجات وتفاصيل الخامات المختلفة مثل الكهرمان والعاج والعظم والخشب.",
+    duration: "5 أيام",
+    technologies: ["React.js", "Tailwind CSS"],
+    category: "متجر إلكتروني",
+},
 ]

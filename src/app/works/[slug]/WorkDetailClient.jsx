@@ -7,7 +7,8 @@ import { ArrowRight, ExternalLink, Clock, Layers, Tag } from 'lucide-react'
 import { notFound } from 'next/navigation'
 import Navbar from '../../components/Navbar'
 
-const accentColors = ['#00BFFE', '#7F00FE', '#00D4AA', '#FF6B6B']
+const accentColors = ['#050519', '#7F00FE', '#5e0a0b', '#FF6B6B', '#e0bcbcff', '#b94a00ff']
+
 
 export default function WorkDetailClient({ slug }) {
   const work = worksData.find((w) => w.slug === slug)

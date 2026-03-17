@@ -1,6 +1,6 @@
 import WorkDetailClient from './WorkDetailClient'
 
-const slugs = ['conex', 'waq3y', 'ideafil', 'maqas']
+const slugs = ['ideafil', 'waq3y', 'conex', 'maqas', 'vilack', 'kiar']
 
 export function generateStaticParams() {
   return slugs.map((slug) => ({ slug }))

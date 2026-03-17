@@ -1,7 +1,7 @@
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import Features from './components/Features';
-import Services from './components/Services';
+import ServicesCarousel from './components/ServicesCarousel';
 import WorkProcess from './components/WorkProcess';
 import Works1 from './components/Works1';
 import Cta from './components/Cta';
@@ -25,7 +25,7 @@ export default function Home() {
       
       </div>
        
-      <Services />
+      <ServicesCarousel />
       <WorkProcess />
       <Works1 />
       <Cta />

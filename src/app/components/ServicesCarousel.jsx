@@ -1,9 +1,17 @@
-import React from 'react'
-import styles from '../style'
-import Paragraph from './Paragraph'
+'use client';
 
-const services = [
+import React from 'react';
+import styles from '../style';
+import Paragraph from './Paragraph';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Pagination, Autoplay } from 'swiper/modules';
+
+const servicesData = [
   {
+    id: 1,
     title: 'تطوير وتصميم المواقع الإلكترونية',
     description: [
       'تصميم مواقع احترافية ومتجاوبة مع جميع الأجهزة',
@@ -39,6 +47,7 @@ const services = [
     ),
   },
   {
+    id: 2,
     title: 'تطوير تطبيقات الجوال',
     description: [
       'برمجة تطبيقات iOS و Android باستخدام أحدث التقنيات',
@@ -73,6 +82,7 @@ const services = [
     ),
   },
   {
+    id: 3,
     title: 'حلول البرمجيات وتطوير الأنظمة',
     description: [
       'تطوير أنظمة ERP و CRM لإدارة الأعمال بكفاءة',
@@ -105,6 +115,7 @@ const services = [
     ),
   },
   {
+    id: 4,
     title: 'إنترنت الأشياء (IoT)',
     description: [
       'تطوير حلول IoT متكاملة للمنازل والشركات',
@@ -139,6 +150,7 @@ const services = [
     ),
   },
   {
+    id: 5,
     title: 'الذكاء الاصطناعي (AI)',
     description: [
       'إنشاء منصة متكاملة تقدم خدمات الذكاء الاصطناعي بسعر منافس',
@@ -175,6 +187,7 @@ const services = [
     ),
   },
   {
+    id: 6,
     title: 'بناء التطبيقات والبرامج',
     description: [
       'تطوير برامج مخصصة للشركات والمؤسسات',
@@ -206,80 +219,140 @@ const services = [
       </svg>
     ),
   },
-]
+];
 
-const Services = () => {
+const ServiceCard = ({ service, index }) => {
+  const accentColors = ['#00BFFE', '#7F00FE', '#00D4AA', '#FF6B6B'];
+  const color = accentColors[index % accentColors.length];
+
+  return (
+    <div
+      className="service-card group relative rounded-2xl p-8 text-white 
+      overflow-hidden max-w-md backdrop-blur-lg bg-white/10 border border-white/20 h-[450px] lg:h-[500px]
+       flex flex-col justify-center items-center mb-5"
+      style={{ animationDelay: `${index * 0.15}s` }}
+    >
+      {/* Glow border on hover */}
+      <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+        style={{
+          background: 'linear-gradient(135deg, rgba(0,191,254,0.15), rgba(0,143,245,0.05))',
+        }}
+      />
+
+      {/* Icon */}
+      <div className="relative z-10 mb-6 service-icon">
+        <div className="w-20 h-20 rounded-2xl flex items-center justify-center"
+          style={{
+            background: 'linear-gradient(135deg, rgba(0,191,254,0.1), rgba(0,143,245,0.05))',
+            border: '1px solid rgba(0,191,254,0.15)',
+          }}
+        >
+          {service.icon}
+        </div>
+      </div>
+
+      {/* Title */}
+      <h3 className="relative z-10 text-center leading-[2] text-white text-xl font-bold mb-6">
+        {service.title}
+      </h3>
+
+      {/* Description with scrollbar */}
+      <div className="relative z-10 flex-1 overflow-y-auto max-h-[350px] pl-4 pr-2 custom-scroll">
+        <ul className="space-y-3 text-[#9CA3AF] text-[15px] leading-relaxed font-tajwal text-right">
+          {service.description.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-2">
+              <span className="text-[#00BFFE] mt-1 flex-shrink-0">•</span>
+              <span className="flex-1">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+};
+
+const ServicesCarousel = () => {
   return (
     <section id='services' className={`${styles.paddingY} flex justify-center items-center z-10 relative min-h-[100vh] bg-dark`}>
-    <div className={`${styles.container}`}>
-    <div className='absolute bottom-5 -right-16'>
-    <svg width="50" height="50" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M46.6706 46.2431L43.0068 83.5083L82.591 75.5361L84.2852 39.5287L46.6706 46.2431ZM81.069 73.8538L56.6996 78.7616L58.5393 60.1345L81.9414 55.3124L81.069 73.8538ZM57.0742 58.4535L55.0335 79.0946L44.8772 81.1394L48.1436 47.9263L82.5833 41.7792L82.0412 53.3054L57.0742 58.4535Z" fill="#1E2CFB"/>
-    <path d="M35.7562 35.8744L29.602 97.3188L41.0393 113.034L106.151 101.422L108.299 39.9729L96.5079 23.7637L35.7562 35.8744ZM41.1674 111.045L31.7323 98.081L93.435 85.7606L104.029 99.8343L41.1674 111.045ZM92.7199 83.9266L31.359 96.1743L37.2276 37.5585L95.5885 25.9296L92.7199 83.9266ZM106.709 39.9631L104.653 98.5586L94.2745 84.7702L97.1302 26.8071L106.709 39.9631Z" fill="#1E2CFB"/>
-    <path d="M104.029 99.8343L41.1676 111.045L31.7325 98.081L93.4368 85.7631L104.029 99.8343Z" fill="#1E2CFB"/>
-    <path d="M97.1414 26.8076L106.714 39.9604L104.661 98.5541L94.2826 84.7657L97.1414 26.8076Z" fill="#1E2CFB"/>
-    <path d="M37.2308 37.5632L31.3621 96.1789L92.7326 83.9259L95.5997 25.9297L37.2308 37.5632ZM82.5908 75.5358L43.0066 83.5079L46.6704 46.2427L84.285 39.5283L82.5908 75.5358Z" fill="#F2FF43"/>
-    <path d="M82.5832 41.7926L82.0411 53.3188L57.0741 58.467L55.0334 79.108L44.8771 81.1528L48.1435 47.9397L82.5832 41.7926Z" fill="#1E2CFB"/>
-    </svg>
-    </div>
-    <Paragraph className='text-white text-[25px] max-w-[650px]  relative'>
-    في <span className='text-blue'>أيدفل تكنولوجي </span> قيمنا هي سر تميزنا  نبتكر  نحمي بياناتك ونقدم لك أفضل جودة  تشمل خدماتنا الأساسية 
-    </Paragraph>
-
-    {/* Service Cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 w-full">
-      {services.map((service, index) => (
-        <div
-          key={index}
-          className="service-card group relative rounded-2xl p-8 flex flex-col items-center text-center cursor-pointer"
-          style={{ animationDelay: `${index * 0.15}s` }}
-        >
-          {/* Glow border on hover */}
-          <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            style={{
-              background: 'linear-gradient(135deg, rgba(0,191,254,0.15), rgba(0,143,245,0.05))',
-            }}
-          />
-
-          {/* Icon */}
-          <div className="relative z-10 mb-6 service-icon">
-            <div className="w-20 h-20 rounded-2xl flex items-center justify-center"
-              style={{
-                background: 'linear-gradient(135deg, rgba(0,191,254,0.1), rgba(0,143,245,0.05))',
-                border: '1px solid rgba(0,191,254,0.15)',
-              }}
-            >
-              {service.icon}
-            </div>
+        <div className={`${styles.container}`}>
+          {/* Decorative element */}
+          <div className='absolute bottom-5 -right-16'>
+            <svg width="50" height="50" viewBox="0 0 139 139" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M46.6706 46.2431L43.0068 83.5083L82.591 75.5361L84.2852 39.5287L46.6706 46.2431ZM81.069 73.8538L56.6996 78.7616L58.5393 60.1345L81.9414 55.3124L81.069 73.8538ZM57.0742 58.4535L55.0335 79.0946L44.8772 81.1394L48.1436 47.9263L82.5833 41.7792L82.0412 53.3054L57.0742 58.4535Z" fill="#1E2CFB"/>
+              <path d="M35.7562 35.8744L29.602 97.3188L41.0393 113.034L106.151 101.422L108.299 39.9729L96.5079 23.7637L35.7562 35.8744ZM41.1674 111.045L31.7323 98.081L93.435 85.7606L104.029 99.8343L41.1674 111.045ZM92.7199 83.9266L31.359 96.1743L37.2276 37.5585L95.5885 25.9296L92.7199 83.9266ZM106.709 39.9631L104.653 98.5586L94.2745 84.7702L97.1302 26.8071L106.709 39.9631Z" fill="#1E2CFB"/>
+              <path d="M104.029 99.8343L41.1676 111.045L31.7325 98.081L93.4368 85.7631L104.029 99.8343Z" fill="#1E2CFB"/>
+              <path d="M97.1414 26.8076L106.714 39.9604L104.661 98.5541L94.2826 84.7657L97.1414 26.8076Z" fill="#1E2CFB"/>
+              <path d="M37.2308 37.5632L31.3621 96.1789L92.7326 83.9259L95.5997 25.9297L37.2308 37.5632ZM82.5908 75.5358L43.0066 83.5079L46.6704 46.2427L84.285 39.5283L82.5908 75.5358Z" fill="#F2FF43"/>
+              <path d="M82.5832 41.7926L82.0411 53.3188L57.0741 58.467L55.0334 79.108L44.8771 81.1528L48.1435 47.9397L82.5832 41.7926Z" fill="#1E2CFB"/>
+            </svg>
           </div>
 
           {/* Title */}
-          <h3 className="relative z-10 text-white text-xl font-bold mb-3 font-tajwal">
-            {service.title}
-          </h3>
+          <Paragraph className='text-white text-[25px] max-w-[650px] relative mb-12'>
+            في <span className='text-blue'>أيدفل تكنولوجي </span> قيمنا هي سر تميزنا  نبتكر  نحمي بياناتك ونقدم لك أفضل جودة  تشمل خدماتنا الأساسية 
+          </Paragraph>
 
-          {/* Description */}
-          <div className="relative z-10 text-[#9CA3AF] text-[15px] leading-relaxed font-tajwal text-right">
-            {Array.isArray(service.description) ? (
-              <ul className="space-y-2">
-                {service.description.map((item, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <span className="text-[#00BFFE] mt-1">•</span>
-                    <span>{item}</span>
-                  </li>
+          {/* Services Carousel */}
+          <div className="w-full">
+            <div className="relative">
+              {/* Gradient masks for smooth fade effect */}
+              <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-dark via-dark/80 to-transparent z-20 pointer-events-none" />
+              <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-dark via-dark/80 to-transparent z-20 pointer-events-none" />
+              
+              <Swiper
+                direction="horizontal"
+                slidesPerView={1}
+                spaceBetween={30}
+                loop={true}
+                /*
+                 autoplay={{
+                  delay: 4000,
+                  disableOnInteraction: false,
+                  pauseOnMouseEnter: true,
+                }}
+                speed={800}
+                */
+                
+                allowTouchMove={true}
+                grabCursor={true}
+                modules={[Pagination, Autoplay]}
+                pagination={{
+                  clickable: true,
+                  dynamicBullets: false,
+                }}
+                className="services-swiper"
+                style={{
+                  '--swiper-pagination-color': '#ffffff',
+                  '--swiper-pagination-bullet-inactive-color': 'rgba(255, 255, 255, 0.3)',
+                  '--swiper-pagination-bullet-inactive-opacity': '1',
+                  padding: '2rem 0',
+                }}
+                breakpoints={{
+                  640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                  },
+                }}
+              >
+                {servicesData.map((service, index) => (
+                  <SwiperSlide key={service.id}>
+                    <div className="service-card-wrapper px-2 h-full">
+                      <div className="service-card-container w-full h-full">
+                        <ServiceCard service={service} index={index} />
+                      </div>
+                    </div>
+                  </SwiperSlide>
                 ))}
-              </ul>
-            ) : (
-              <p>{service.description}</p>
-            )}
+              </Swiper>
+            </div>
           </div>
         </div>
-      ))}
-    </div>
+    </section>
+  );
+};
 
-  </div>
-</section>
-  )
-}
-
-export default Services
+export default ServicesCarousel;
