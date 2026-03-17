@@ -5,6 +5,7 @@ import ideafil from "../../../public/works/ideafil.png"
 import maqas from "../../../public/works/maqas.png"
 import kiar from "../../../public/works/kiar.png"
 import vilack from "../../../public/works/vilack.png"
+import dahank from "../../../public/works/dahank.png"
 
 
 
@@ -78,5 +79,17 @@ description:
     duration: "5 أيام",
     technologies: ["React.js", "Tailwind CSS"],
     category: "متجر إلكتروني",
+},
+
+  {
+    id: 7,
+    title: "Dahank",
+    slug: "dahank",
+    img: dahank,
+    Url: "https://dahank.net/",
+    description: "تصميم وتطوير موقع احترافي لشركة «Dahank» المتخصصة في خدمات الديكور والدهانات والتنسيق الخارجي للحدائق، مع واجهة جذابة وتجربة مستخدم سلسة تعرض خدمات الشركة بشكل واضح مع إبراز مشاريعها وأعمالها السابقة.",
+    duration: "5 أيام",
+    technologies: ["React.js", "Tailwind CSS"],
+    category: "صفحة هبوط",
 },
 ]

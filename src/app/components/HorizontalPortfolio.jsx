@@ -5,7 +5,7 @@ import Link from "next/link"
 import { worksData } from "../data/worksData"
 import styles from "../style"
 
-const accentColors = ['#050519', '#7F00FE', '#5e0a0b', '#FF6B6B', '#1e2735', '#542200']
+const accentColors = ['#050519', '#7F00FE', '#5e0a0b', '#FF6B6B', '#1e2735', '#542200', '#cec8b4ff']
 
 const PortfolioCard = ({ work, index }) => {
   const color = accentColors[index % accentColors.length]
