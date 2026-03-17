@@ -5,7 +5,7 @@ import Link from "next/link"
 import styles from "../style"
 import Paragraph from "./Paragraph"
 
-import HorizontalPortfolio from "./HorizontalPortfolio"
+import PortfolioWorks from "./PortfolioWorks"
 import Title from "./Title"
 
 
@@ -37,7 +37,7 @@ const Works1 = () => {
       </div>
 
 
-      <HorizontalPortfolio />
+      <PortfolioWorks />
        
      
     </section>

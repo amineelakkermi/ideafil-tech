@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
+import { ArrowLeft } from 'lucide-react'
 import { worksData } from "../data/worksData"
 import styles from "../style"
 
@@ -88,7 +89,8 @@ const PortfolioCard = ({ work, index }) => {
   )
 }
 
-const HorizontalPortfolio = () => {
+const AllPortfolioWorks = () => {
+
   return (
     <div
       id="portfolio"
@@ -101,8 +103,10 @@ const HorizontalPortfolio = () => {
           </Link>
         ))}
       </div>
+
+     
     </div>
   )
 }
 
-export default HorizontalPortfolio
+export default AllPortfolioWorks
